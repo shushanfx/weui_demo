@@ -1,0 +1,10 @@
+*.pid
+*.seed
+
+.grunt
+.idea
+.svn
+
+static/plugin
+bower_component
+node_modules

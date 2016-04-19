@@ -1,0 +1,25 @@
+{
+  "name": "weui_demo",
+  "version": "0.0.0",
+  "description": "A demo for weui",
+  "keywords": [
+      "demo",
+      "react",
+      "weui"
+  ],
+  "authors": [
+    "shushanfx"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "weui": "~0.4.1"
+  },
+  "directory" : "static/plugin"
+}
