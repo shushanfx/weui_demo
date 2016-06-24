@@ -24750,4 +24750,10 @@ var HelloMessage = React.createClass({ displayName: "HelloMessage", // Create a 
 
 ReactDOM.render(React.createElement(HelloMessage, { name: "shushanfx" }), document.getElementById("container"));
 
-},{"react":230,"react-dom":30,"react-weui":101}]},{},[231]);
+},{"react":230,"react-dom":30,"react-weui":101}],232:[function(require,module,exports){
+var ReactDOM = require('react-dom'); // Browserify!
+var Mobile = require("./MobileComponent.js");
+
+ReactDOM.render(document.getElementById("container"), React.createElement(Mobile, { access: "true" }));
+
+},{"./MobileComponent.js":231,"react-dom":30}]},{},[232]);
