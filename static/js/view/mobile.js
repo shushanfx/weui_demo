@@ -24698,62 +24698,85 @@ module.exports = require('./lib/React');
 
 },{"./lib/React":125}],231:[function(require,module,exports){
 /** @jsx React.DOM, wi */
-var ReactDOM = require('react-dom'); // Browserify!
+var ReactDOM = require('react-dom');  // Browserify!
 var React = require("react");
 var WeUI = require("react-weui");
-var { Button, Cells, Cell, Dialog, CellHeader, CellBody, ActionSheet, Page } = WeUI;
+var {Button, Cell, Dialog, CellHeader, CellBody, ActionSheet} = WeUI;
 
-var HelloMessage = React.createClass({ displayName: "HelloMessage", // Create a component, HelloMessage.
-    getInitialState: function () {
+var Mobile = React.createClass({displayName: "Mobile",
+    getInitialState: function(){
         return {
             count: 0,
             dialogShow: false,
-            sheetShow: false
+            sheetShow: false,
         };
     },
-    getDefaultProps: function () {
+    getDefaultProps : function(){
         return {};
     },
-    render: function () {
-        return React.createElement("div", { title: "Test", style: { margin: "15px 7px" } }, React.createElement("h1", { style: { "textAlign": "center", "marginBottom": "10px" } }, "React Demo"), React.createElement(Button, { ref: "btnAdd", onClick: this.click }, "自增", this.state.count), React.createElement(Button, { type: "primary", onClick: this.onHandleDialog.bind(this, true) }, "弹出对话框"), React.createElement(Button, { type: "primary", onClick: this.onHandleSheet.bind(this, true) }, "弹出ActionSheet"), React.createElement(Dialog.Alert, { show: this.state.dialogShow, title: "Hello", buttons: [{
-                label: "确定",
-                onClick: this.onHandleDialog.bind(this, false)
-            }, {
-                label: "取消",
-                onClick: this.onHandleDialog.bind(this, false)
-            }] }, React.createElement(Cell, null, React.createElement(CellHeader, null, React.createElement("label", null, "Name:")), React.createElement(CellBody, null, React.createElement("input", { defaultValue: "123" })))), React.createElement(ActionSheet, { menus: [{
-                label: "抓取",
-                onClick: this.onHandleFetch
-            }], actions: [{
-                label: "退出",
-                onClick: this.onHandleSheet.bind(this, false)
-            }], show: this.state.sheetShow, onRequestClose: this.onHandleSheet.bind(this, false) }));
+    render: function() {
+        return (React.createElement("div", {title: "Test", style: {margin: "15px 7px"}}, 
+            React.createElement("h1", {style: {"textAlign": "center", "marginBottom": "10px"}}, "React Demo"), 
+            React.createElement(Button, {ref: "btnAdd", onClick: this.click}, "自增", this.state.count), 
+            React.createElement(Button, {type: "primary", onClick: this.onHandleDialog.bind(this, true)}, "弹出对话框"), 
+            React.createElement(Button, {type: "primary", onClick: this.onHandleSheet.bind(this, true)}, "弹出ActionSheet"), 
+            React.createElement(Dialog.Alert, {show: this.state.dialogShow, title: "Hello", buttons: [{
+                        label: "确定",
+                        onClick: this.onHandleDialog.bind(this, false)
+                        }, {
+                            label: "取消",
+                            onClick: this.onHandleDialog.bind(this, false)
+                        }
+                    ]}, 
+                React.createElement(Cell, null, 
+                    React.createElement(CellHeader, null, React.createElement("label", null, "Name:")), 
+                    React.createElement(CellBody, null, React.createElement("input", {defaultValue: "123"}))
+                )
+            ), 
+            React.createElement(ActionSheet, {menus: [
+                        {
+                            label: "抓取",
+                            onClick: this.onHandleFetch
+                        }
+                    ], actions: [
+                        {
+                            label: "退出",
+                            onClick: this.onHandleSheet.bind(this, false)
+                        }
+                    ], show: this.state.sheetShow, onRequestClose: this.onHandleSheet.bind(this, false)})
+
+        ));
     },
-    click: function () {
+    click: function(){
         let count = this.state.count;
-        count++;
+        count ++;
         this.setState({
             "count": count
         });
     },
-    onHandleDialog: function (isHide) {
+    onHandleDialog: function(isHide){
         this.setState({
             dialogShow: isHide
         });
     },
-    onHandleSheet: function (isHide) {
+    onHandleSheet: function(isHide){
         this.setState({
             sheetShow: isHide
         });
     }
 });
 
-ReactDOM.render(React.createElement(HelloMessage, { name: "shushanfx" }), document.getElementById("container"));
+// exports
+module.exports = exports = Mobile;
 
 },{"react":230,"react-dom":30,"react-weui":101}],232:[function(require,module,exports){
-var ReactDOM = require('react-dom'); // Browserify!
+var ReactDOM = require('react-dom');
+var React = require("react");
 var Mobile = require("./MobileComponent.js");
 
-ReactDOM.render(document.getElementById("container"), React.createElement(Mobile, { access: "true" }));
+ReactDOM.render(
+    React.createElement(Mobile, {access: "true"}),
+    document.getElementById("container")
+);
 
-},{"./MobileComponent.js":231,"react-dom":30}]},{},[232]);
+},{"./MobileComponent.js":231,"react":230,"react-dom":30}]},{},[232]);
