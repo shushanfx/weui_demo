@@ -2,11 +2,9 @@
 var ReactDOM = require('react-dom');  // Browserify!
 var React = require("react");
 var WeUI = require("react-weui");
-var {Button, Cells, Cell, Dialog, CellHeader, CellBody, ActionSheet, Page} = WeUI;
+var {Button, Cell, Dialog, CellHeader, CellBody, ActionSheet} = WeUI;
 
-
-
-var HelloMessage = React.createClass({  // Create a component, HelloMessage.
+var Mobile = React.createClass({
     getInitialState: function(){
         return {
             count: 0,
@@ -69,6 +67,5 @@ var HelloMessage = React.createClass({  // Create a component, HelloMessage.
     }
 });
 
-ReactDOM.render(
-    <HelloMessage name="shushanfx" />,
-    document.getElementById("container"));
+// exports
+module.exports = exports = Mobile;
